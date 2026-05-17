@@ -1,0 +1,125 @@
+.pool-container h2 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-light);
+}
+
+.pool-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.pool-actions button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: 600;
+}
+
+.pools-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.pool-card {
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pool-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+.pool-header h3 {
+  margin: 0;
+  flex: 1;
+  color: var(--text-light);
+}
+
+.pool-code {
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.pool-info p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.pool-info strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal h3 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-light);
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.modal-buttons button {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .pool-actions {
+    flex-direction: column;
+  }
+
+  .pool-actions button {
+    width: 100%;
+  }
+
+  .pools-list {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    width: calc(100% - 2 * var(--spacing-md));
+  }
+}

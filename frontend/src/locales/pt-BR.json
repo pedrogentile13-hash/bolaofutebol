@@ -1,0 +1,100 @@
+{
+  "common": {
+    "welcome": "Bem-vindo",
+    "logout": "Sair",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "delete": "Deletar",
+    "edit": "Editar",
+    "back": "Voltar",
+    "next": "Próximo"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Registrar",
+    "email": "Email",
+    "password": "Senha",
+    "name": "Nome",
+    "confirmPassword": "Confirmar Senha",
+    "rememberMe": "Lembrar-me",
+    "forgotPassword": "Esqueceu a senha?",
+    "noAccount": "Não tem uma conta?",
+    "alreadyHaveAccount": "Já tem uma conta?",
+    "loginButton": "Entrar",
+    "registerButton": "Criar Conta",
+    "loginError": "Email ou senha incorretos",
+    "registerError": "Erro ao criar conta",
+    "passwordsDontMatch": "As senhas não coincidem",
+    "emailAlreadyExists": "Email já cadastrado"
+  },
+  "navigation": {
+    "ranking": "Ranking",
+    "bets": "Palpites",
+    "pool": "Bolão",
+    "settings": "Configurações"
+  },
+  "ranking": {
+    "title": "Ranking dos Participantes",
+    "position": "Posição",
+    "name": "Nome",
+    "points": "Pontos",
+    "hits": "Acertos"
+  },
+  "bets": {
+    "title": "Meus Palpites",
+    "noUpcomingMatches": "Nenhum jogo próximo",
+    "team": "Time",
+    "score": "Placar",
+    "date": "Data",
+    "time": "Hora",
+    "makeBet": "Fazer Palpite",
+    "yourBet": "Seu Palpite",
+    "save": "Salvar Palpite",
+    "betSaved": "Palpite salvo com sucesso!"
+  },
+  "pool": {
+    "title": "Meu Bolão",
+    "myPools": "Meus Bolões",
+    "createPool": "Criar Novo Bolão",
+    "joinPool": "Entrar em um Bolão",
+    "poolCode": "Código do Bolão",
+    "poolName": "Nome do Bolão",
+    "poolMembers": "Membros",
+    "owner": "Proprietário",
+    "createdAt": "Criado em",
+    "noPoolsYet": "Você ainda não está em nenhum bolão",
+    "enterCode": "Digite o código do bolão",
+    "join": "Entrar"
+  },
+  "settings": {
+    "title": "Configurações",
+    "profile": "Perfil",
+    "language": "Idioma",
+    "theme": "Tema",
+    "darkMode": "Modo Escuro",
+    "notifications": "Notificações",
+    "rules": "Regras do Bolão",
+    "preferences": "Preferências",
+    "contact": "Contato",
+    "about": "Sobre",
+    "logout": "Sair",
+    "name": "Nome",
+    "email": "Email",
+    "avatar": "Foto de Perfil",
+    "enableNotifications": "Ativar Notificações",
+    "emailNotifications": "Notificações por Email",
+    "pushNotifications": "Notificações Push",
+    "portuguese": "Português",
+    "english": "Inglês",
+    "spanish": "Espanhol",
+    "changePassword": "Alterar Senha",
+    "deleteAccount": "Deletar Conta"
+  },
+  "splash": {
+    "appName": "⚽ Bolão de Futebol",
+    "subtitle": "Copa do Mundo 2026"
+  }
+}

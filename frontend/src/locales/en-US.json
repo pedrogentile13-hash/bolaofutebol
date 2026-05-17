@@ -1,0 +1,100 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "confirmPassword": "Confirm Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginButton": "Sign In",
+    "registerButton": "Create Account",
+    "loginError": "Invalid email or password",
+    "registerError": "Error creating account",
+    "passwordsDontMatch": "Passwords don't match",
+    "emailAlreadyExists": "Email already registered"
+  },
+  "navigation": {
+    "ranking": "Ranking",
+    "bets": "Bets",
+    "pool": "Pool",
+    "settings": "Settings"
+  },
+  "ranking": {
+    "title": "Participants Ranking",
+    "position": "Position",
+    "name": "Name",
+    "points": "Points",
+    "hits": "Hits"
+  },
+  "bets": {
+    "title": "My Bets",
+    "noUpcomingMatches": "No upcoming matches",
+    "team": "Team",
+    "score": "Score",
+    "date": "Date",
+    "time": "Time",
+    "makeBet": "Place Bet",
+    "yourBet": "Your Bet",
+    "save": "Save Bet",
+    "betSaved": "Bet saved successfully!"
+  },
+  "pool": {
+    "title": "My Pool",
+    "myPools": "My Pools",
+    "createPool": "Create New Pool",
+    "joinPool": "Join a Pool",
+    "poolCode": "Pool Code",
+    "poolName": "Pool Name",
+    "poolMembers": "Members",
+    "owner": "Owner",
+    "createdAt": "Created At",
+    "noPoolsYet": "You are not in any pools yet",
+    "enterCode": "Enter the pool code",
+    "join": "Join"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "language": "Language",
+    "theme": "Theme",
+    "darkMode": "Dark Mode",
+    "notifications": "Notifications",
+    "rules": "Pool Rules",
+    "preferences": "Preferences",
+    "contact": "Contact",
+    "about": "About",
+    "logout": "Logout",
+    "name": "Name",
+    "email": "Email",
+    "avatar": "Profile Picture",
+    "enableNotifications": "Enable Notifications",
+    "emailNotifications": "Email Notifications",
+    "pushNotifications": "Push Notifications",
+    "portuguese": "Portuguese",
+    "english": "English",
+    "spanish": "Spanish",
+    "changePassword": "Change Password",
+    "deleteAccount": "Delete Account"
+  },
+  "splash": {
+    "appName": "⚽ Football Betting",
+    "subtitle": "World Cup 2026"
+  }
+}

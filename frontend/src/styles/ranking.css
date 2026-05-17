@@ -1,0 +1,79 @@
+.ranking-container h2 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-light);
+}
+
+.ranking-table {
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.ranking-header {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px 100px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-light-secondary);
+  font-weight: 700;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.ranking-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px 100px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-light);
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.ranking-row:hover {
+  background-color: var(--bg-light-secondary);
+}
+
+.ranking-row:last-child {
+  border-bottom: none;
+}
+
+.position-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.col-position,
+.col-name,
+.col-points,
+.col-hits {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .ranking-header,
+  .ranking-row {
+    grid-template-columns: 50px 1fr 60px 60px;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+
+  .position-badge {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .col-name {
+    font-size: 0.95rem;
+  }
+}
