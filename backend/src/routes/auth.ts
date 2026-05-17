@@ -55,10 +55,10 @@ router.post('/register', async (req: Request, res: Response) => {
 
 router.post('/login', async (req: Request, res: Response) => {
   try {
-    const { email, password } = req.body
+    const { email } = req.body
 
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password required' })
+    if (!email) {
+      return res.status(400).json({ message: 'Email required' })
     }
 
     const { data: user, error } = await supabase
@@ -68,7 +68,7 @@ router.post('/login', async (req: Request, res: Response) => {
       .single()
 
     if (error || !user) {
-      return res.status(401).json({ message: 'Invalid credentials' })
+      return res.status(401).json({ message: 'User not found' })
     }
 
     const token = generateToken({

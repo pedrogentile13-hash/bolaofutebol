@@ -6,6 +6,7 @@ import rankingRoutes from './routes/ranking.js'
 import betsRoutes from './routes/bets.js'
 import poolsRoutes from './routes/pools.js'
 import matchesRoutes from './routes/matches.js'
+import testRoutes from './routes/test.js'
 
 dotenv.config()
 
@@ -23,6 +24,7 @@ app.use('/api/ranking', rankingRoutes)
 app.use('/api/bets', betsRoutes)
 app.use('/api/pools', poolsRoutes)
 app.use('/api/matches', matchesRoutes)
+app.use('/api/test', testRoutes)
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' })
