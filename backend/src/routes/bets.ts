@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express'
 import { verifyToken } from '../middleware/auth.js'
-import { Bet } from '../models/Bet.js'
+import { supabase } from '../config/supabase.js'
 
 const router = Router()
 
@@ -12,15 +12,21 @@ router.post('/', verifyToken, async (req: Request, res: Response) => {
       return res.status(400).json({ message: 'Missing required fields' })
     }
 
-    const bet = new Bet({
-      userId: req.user?.id,
-      matchId,
-      homeScore,
-      awayScore,
-      points: 0
-    })
+    const { data: bet, error } = await supabase
+      .from('bets')
+      .insert([{
+        user_id: req.user?.id,
+        match_id: matchId,
+        home_score: homeScore,
+        away_score: awayScore,
+        points: 0
+      }])
+      .select()
+      .single()
 
-    await bet.save()
+    if (error) {
+      return res.status(500).json({ message: 'Error creating bet' })
+    }
 
     res.status(201).json(bet)
   } catch (error) {
@@ -30,8 +36,16 @@ router.post('/', verifyToken, async (req: Request, res: Response) => {
 
 router.get('/', verifyToken, async (req: Request, res: Response) => {
   try {
-    const userBets = await Bet.find({ userId: req.user?.id })
-    res.json(userBets)
+    const { data: bets, error } = await supabase
+      .from('bets')
+      .select('*')
+      .eq('user_id', req.user?.id)
+
+    if (error) {
+      return res.status(500).json({ message: 'Error fetching bets' })
+    }
+
+    res.json(bets || [])
   } catch (error) {
     res.status(500).json({ message: 'Server error' })
   }
