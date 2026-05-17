@@ -30,7 +30,8 @@ router.post('/register', async (req: Request, res: Response) => {
       .single()
 
     if (error) {
-      return res.status(500).json({ message: 'Error creating user' })
+      console.error('Supabase error:', error)
+      return res.status(500).json({ message: 'Error creating user', error: error.message })
     }
 
     const token = generateToken({
