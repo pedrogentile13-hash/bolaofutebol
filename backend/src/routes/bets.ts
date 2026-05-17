@@ -1,11 +1,10 @@
 import { Router, Request, Response } from 'express'
 import { verifyToken } from '../middleware/auth.js'
+import { Bet } from '../models/Bet.js'
 
 const router = Router()
 
-const bets: any[] = []
-
-router.post('/', verifyToken, (req: Request, res: Response) => {
+router.post('/', verifyToken, async (req: Request, res: Response) => {
   try {
     const { matchId, homeScore, awayScore } = req.body
 
@@ -13,17 +12,15 @@ router.post('/', verifyToken, (req: Request, res: Response) => {
       return res.status(400).json({ message: 'Missing required fields' })
     }
 
-    const bet = {
-      id: Date.now().toString(),
+    const bet = new Bet({
       userId: req.user?.id,
       matchId,
       homeScore,
       awayScore,
-      points: 0,
-      createdAt: new Date()
-    }
+      points: 0
+    })
 
-    bets.push(bet)
+    await bet.save()
 
     res.status(201).json(bet)
   } catch (error) {
@@ -31,9 +28,13 @@ router.post('/', verifyToken, (req: Request, res: Response) => {
   }
 })
 
-router.get('/', verifyToken, (req: Request, res: Response) => {
-  const userBets = bets.filter(b => b.userId === req.user?.id)
-  res.json(userBets)
+router.get('/', verifyToken, async (req: Request, res: Response) => {
+  try {
+    const userBets = await Bet.find({ userId: req.user?.id })
+    res.json(userBets)
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' })
+  }
 })
 
 export default router
