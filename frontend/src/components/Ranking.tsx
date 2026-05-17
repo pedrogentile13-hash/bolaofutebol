@@ -8,9 +8,11 @@ interface RankingEntry {
   name: string
   points: number
   hits: number
+  isPro?: boolean
 }
 
 export default function Ranking() {
+  const [activeTab, setActiveTab] = useState('geral')
   const [ranking, setRanking] = useState<RankingEntry[]>([])
   const [loading, setLoading] = useState(true)
   const { t } = useTranslation()
@@ -32,24 +34,65 @@ export default function Ranking() {
 
   if (loading) return <div className="loading">{t('common.loading')}</div>
 
+  const tabs = [
+    { id: 'geral', icon: '🏆', label: 'Geral' },
+    { id: 'equipes', icon: '👥', label: 'Equipes' },
+    { id: 'perguntas', icon: '❓', label: 'Perguntas' }
+  ]
+
   return (
     <div className="ranking-container">
-      <h2>{t('ranking.title')}</h2>
+      <div className="ranking-header-section">
+        <h2>🏆 Ranking</h2>
+        <div className="ranking-tabs">
+          {tabs.map(tab => (
+            <button
+              key={tab.id}
+              className={`ranking-tab ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              <span className="tab-icon">{tab.icon}</span>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="ranking-promo">
+        <div className="promo-card free">
+          <span className="promo-badge">GRATIS</span>
+          <p>Atualiza 1x ao dia.</p>
+        </div>
+        <div className="promo-card pro">
+          <span className="promo-badge pro">⭐ PRO</span>
+          <p>Atualiza em tempo real.</p>
+        </div>
+      </div>
+
       <div className="ranking-table">
-        <div className="ranking-header">
-          <div className="col-position">{t('ranking.position')}</div>
-          <div className="col-name">{t('ranking.name')}</div>
-          <div className="col-points">{t('ranking.points')}</div>
-          <div className="col-hits">{t('ranking.hits')}</div>
+        <div className="ranking-table-header">
+          <div className="col-position">#</div>
+          <div className="col-name">Participante</div>
+          <div className="col-points">Pontos</div>
+          <div className="col-hits">Acertos</div>
         </div>
         {ranking.map((entry, index) => (
-          <div key={index} className="ranking-row">
+          <div key={index} className={`ranking-row ${entry.isPro ? 'pro-user' : ''}`}>
             <div className="col-position">
-              <span className="position-badge">{entry.position}</span>
+              <span className={`position-badge position-${entry.position}`}>
+                {entry.position}
+              </span>
             </div>
-            <div className="col-name">{entry.name}</div>
-            <div className="col-points">{entry.points}</div>
-            <div className="col-hits">{entry.hits}</div>
+            <div className="col-name">
+              <span>{entry.name}</span>
+              {entry.isPro && <span className="pro-badge">PRO</span>}
+            </div>
+            <div className="col-points">
+              <span className="points-value">{entry.points}</span>
+            </div>
+            <div className="col-hits">
+              <span className="hits-value">{entry.hits}</span>
+            </div>
           </div>
         ))}
       </div>

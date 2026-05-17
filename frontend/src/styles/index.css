@@ -5,24 +5,29 @@
 }
 
 :root {
-  --primary-color: #1e40af;
+  --primary-color: #2d7a6f;
+  --primary-light: #3d9a8f;
+  --primary-dark: #1d5a4f;
+  --accent-orange: #f59e0b;
+  --accent-orange-dark: #d97706;
   --secondary-color: #64748b;
-  --success-color: #16a34a;
-  --danger-color: #dc2626;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
   --warning-color: #f59e0b;
   --bg-light: #ffffff;
   --bg-light-secondary: #f8fafc;
   --text-light: #1f2937;
   --border-light: #e5e7eb;
 
-  --bg-dark: #0f172a;
-  --bg-dark-secondary: #1e293b;
-  --text-dark: #f1f5f9;
-  --border-dark: #334155;
+  --bg-dark: #0a1628;
+  --bg-dark-secondary: #0f2847;
+  --bg-dark-tertiary: #1a3a52;
+  --text-dark: #e8f0f7;
+  --border-dark: #2d5a6f;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.35);
 
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -30,7 +35,7 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
 
-  --border-radius: 0.5rem;
+  --border-radius: 0.75rem;
 }
 
 html.dark {
@@ -100,10 +105,11 @@ button {
   color: white;
   padding: var(--spacing-sm) var(--spacing-lg);
   font-weight: 600;
+  border: 1px solid var(--primary-light);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #1e3a8a;
+  background-color: var(--primary-light);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }

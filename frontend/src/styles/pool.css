@@ -1,80 +1,234 @@
-.pool-container h2 {
-  margin-bottom: var(--spacing-lg);
-  color: var(--text-light);
-}
-
-.pool-actions {
+.pool-container {
   display: flex;
-  gap: var(--spacing-md);
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.pools-header h2 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--text-light);
+  font-size: 1.5rem;
+}
+
+html.dark .pools-header h2 {
+  color: var(--text-dark);
+}
+
+.pools-header p {
+  margin: 0;
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+}
+
+.pool-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
 }
 
-.pool-actions button {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-weight: 600;
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-light);
+  border: 2px solid var(--border-light);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+html.dark .action-btn {
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--border-dark);
+}
+
+.action-btn:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.action-btn .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  border-radius: var(--border-radius);
+}
+
+.action-btn.create-btn .icon {
+  background-color: rgba(45, 122, 111, 0.2);
+  color: var(--primary-color);
+}
+
+.action-btn.join-btn .icon {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: var(--accent-orange);
+}
+
+.action-btn strong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+html.dark .action-btn strong {
+  color: var(--text-dark);
+}
+
+.action-btn p {
+  margin: 0;
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+.no-pools-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
 }
 
 .pools-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-lg);
 }
 
 .pool-card {
   background-color: var(--bg-light);
+  border: 1px solid var(--border-light);
   border-radius: var(--border-radius);
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-md);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+html.dark .pool-card {
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--border-dark);
 }
 
 .pool-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
 }
 
-.pool-header {
+.pool-card-header {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+html.dark .pool-card-header {
+  border-bottom-color: var(--border-dark);
+}
+
+.pool-card-header h3 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--text-light);
+  font-size: 1.2rem;
+}
+
+html.dark .pool-card-header h3 {
+  color: var(--text-dark);
+}
+
+.owner-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--accent-orange);
+}
+
+.copy-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background-color: var(--primary-light);
+}
+
+.pool-card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
   gap: var(--spacing-md);
 }
 
-.pool-header h3 {
-  margin: 0;
-  flex: 1;
+.stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  margin-bottom: 2px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--text-light);
 }
 
-.pool-code {
+html.dark .stat-value {
+  color: var(--text-dark);
+}
+
+.btn-view-ranking {
+  width: 100%;
+  padding: var(--spacing-md);
   background-color: var(--primary-color);
   color: white;
-  padding: var(--spacing-xs) var(--spacing-sm);
+  border: none;
   border-radius: var(--border-radius);
-  font-weight: 700;
-  font-size: 0.85rem;
-  white-space: nowrap;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.pool-info p {
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-light);
-  font-size: 0.95rem;
+.btn-view-ranking:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
 }
 
-.pool-info strong {
-  color: var(--primary-color);
-  font-weight: 700;
-}
-
+/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,14 +240,54 @@
   border-radius: var(--border-radius);
   padding: var(--spacing-xl);
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   box-shadow: var(--shadow-lg);
 }
 
-.modal h3 {
+html.dark .modal {
+  background-color: var(--bg-dark-secondary);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+html.dark .modal-header {
+  border-bottom-color: var(--border-dark);
+}
+
+.modal-header h3 {
+  margin: 0;
   color: var(--text-light);
-  text-align: center;
+  font-size: 1.3rem;
+}
+
+html.dark .modal-header h3 {
+  color: var(--text-dark);
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--secondary-color);
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  color: var(--text-light);
 }
 
 .modal-buttons {
@@ -104,22 +298,48 @@
 
 .modal-buttons button {
   flex: 1;
+  padding: var(--spacing-md);
+  font-weight: 600;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  border: 2px solid var(--border-light);
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+html.dark .btn-cancel {
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+.btn-cancel:hover {
+  background-color: var(--bg-light-secondary);
+  border-color: var(--primary-color);
+}
+
+html.dark .btn-cancel:hover {
+  background-color: var(--bg-dark-tertiary);
 }
 
 @media (max-width: 768px) {
-  .pool-actions {
-    flex-direction: column;
-  }
-
-  .pool-actions button {
-    width: 100%;
+  .pool-actions-grid {
+    grid-template-columns: 1fr;
   }
 
   .pools-list {
     grid-template-columns: 1fr;
   }
 
+  .pool-card-stats {
+    grid-template-columns: 1fr;
+  }
+
   .modal {
-    width: calc(100% - 2 * var(--spacing-md));
+    width: calc(100% - 2 * var(--spacing-lg));
+    max-width: none;
   }
 }

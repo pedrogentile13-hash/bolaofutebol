@@ -30,20 +30,15 @@ export default function Settings() {
       case 'profile':
         return (
           <div className="settings-section">
-            <h3>{t('settings.profile')}</h3>
-            <div className="profile-info">
-              <div className="avatar-section">
-                <div className="avatar-placeholder">👤</div>
-                <button className="btn-secondary">{t('settings.avatar')}</button>
+            <div className="profile-card">
+              <div className="avatar">
+                <span>👤</span>
               </div>
-              <div className="form-group">
-                <label>{t('auth.name')}</label>
-                <input type="text" value={user?.name || ''} disabled />
+              <div className="profile-details">
+                <h3>{user?.name || 'Usuário'}</h3>
+                <p className="email">{user?.email || 'email@example.com'}</p>
               </div>
-              <div className="form-group">
-                <label>{t('auth.email')}</label>
-                <input type="email" value={user?.email || ''} disabled />
-              </div>
+              <button className="btn-edit">✏️ Editar</button>
             </div>
           </div>
         )
@@ -51,24 +46,35 @@ export default function Settings() {
       case 'appearance':
         return (
           <div className="settings-section">
-            <h3>{t('settings.theme')}</h3>
-            <div className="appearance-settings">
-              <div className="setting-item">
-                <label>{t('settings.darkMode')}</label>
-                <button
-                  onClick={toggle}
-                  className={`toggle-btn ${isDark ? 'active' : ''}`}
-                >
-                  {isDark ? '🌙' : '☀️'}
-                </button>
+            <div className="setting-item">
+              <div className="setting-label">
+                <span className="icon">🌙</span>
+                <div>
+                  <strong>Tema Escuro</strong>
+                  <p>Ativa o modo escuro</p>
+                </div>
               </div>
-              <div className="setting-item">
-                <label>{t('settings.language')}</label>
-                <select value={language} onChange={(e) => handleLanguageChange(e.target.value)}>
-                  <option value="pt-BR">{t('settings.portuguese')}</option>
-                  <option value="en-US">{t('settings.english')}</option>
-                </select>
+              <button
+                onClick={toggle}
+                className={`toggle-switch ${isDark ? 'active' : ''}`}
+              />
+            </div>
+            <div className="setting-item">
+              <div className="setting-label">
+                <span className="icon">🌐</span>
+                <div>
+                  <strong>Idioma</strong>
+                  <p>Português ou English</p>
+                </div>
               </div>
+              <select
+                value={language}
+                onChange={(e) => handleLanguageChange(e.target.value)}
+                className="language-select"
+              >
+                <option value="pt-BR">🇧🇷 Português</option>
+                <option value="en-US">🇺🇸 English</option>
+              </select>
             </div>
           </div>
         )
@@ -76,16 +82,15 @@ export default function Settings() {
       case 'notifications':
         return (
           <div className="settings-section">
-            <h3>{t('settings.notifications')}</h3>
-            <div className="notification-settings">
-              <div className="setting-item">
-                <label>{t('settings.emailNotifications')}</label>
-                <input type="checkbox" defaultChecked />
+            <div className="setting-item">
+              <div className="setting-label">
+                <span className="icon">🔔</span>
+                <div>
+                  <strong>Notificações</strong>
+                  <p>Cutucoes recebidas</p>
+                </div>
               </div>
-              <div className="setting-item">
-                <label>{t('settings.pushNotifications')}</label>
-                <input type="checkbox" defaultChecked />
-              </div>
+              <input type="checkbox" defaultChecked className="checkbox-toggle" />
             </div>
           </div>
         )
@@ -93,12 +98,24 @@ export default function Settings() {
       case 'rules':
         return (
           <div className="settings-section">
-            <h3>{t('settings.rules')}</h3>
-            <div className="rules-content">
-              <p>• {t('splash.subtitle')}</p>
-              <p>• Palpite correto: 3 pontos</p>
-              <p>• Acerto do vencedor: 1 ponto</p>
-              <p>• Placar correto: 3 pontos</p>
+            <div className="rules-card">
+              <h3>📋 Regras do Bolão</h3>
+              <div className="rules-list">
+                <div className="rule-item">
+                  <span className="rule-icon">✓</span>
+                  <div>
+                    <strong>Palpite Correto</strong>
+                    <p>Vencedor correto: 1 ponto</p>
+                  </div>
+                </div>
+                <div className="rule-item">
+                  <span className="rule-icon">✓✓</span>
+                  <div>
+                    <strong>Placar Correto</strong>
+                    <p>Placar exato: 3 pontos</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )
@@ -106,11 +123,29 @@ export default function Settings() {
       case 'contact':
         return (
           <div className="settings-section">
-            <h3>{t('settings.contact')}</h3>
-            <div className="contact-info">
-              <p>📧 Email: contato@bolaofutebol.com</p>
-              <p>🌐 Website: www.bolaofutebol.com</p>
-              <p>💬 Suporte: suporte@bolaofutebol.com</p>
+            <div className="contact-card">
+              <h3>📞 Contato e Suporte</h3>
+              <div className="contact-item">
+                <span className="contact-icon">📧</span>
+                <div>
+                  <strong>Email</strong>
+                  <p>contato@bolaofutebol.com</p>
+                </div>
+              </div>
+              <div className="contact-item">
+                <span className="contact-icon">🌐</span>
+                <div>
+                  <strong>Website</strong>
+                  <p>www.bolaofutebol.com</p>
+                </div>
+              </div>
+              <div className="contact-item">
+                <span className="contact-icon">💬</span>
+                <div>
+                  <strong>Suporte</strong>
+                  <p>suporte@bolaofutebol.com</p>
+                </div>
+              </div>
             </div>
           </div>
         )
