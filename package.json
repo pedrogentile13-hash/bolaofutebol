@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "Sistema de Bolão de Futebol - Copa do Mundo 2026",
   "private": true,
+  "type": "module",
+  "main": "backend/dist/index.js",
   "scripts": {
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev",
     "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "cd frontend && npm run build",
-    "build:backend": "cd backend && npm run build"
+    "build:backend": "cd backend && npm run build",
+    "start": "cd backend && node dist/index.js",
+    "build:prod": "npm run build:frontend && npm run build:backend && npm run copy:frontend",
+    "copy:frontend": "cp -r frontend/dist backend/public"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import jwt from 'jsonwebtoken'
+import jwt, { SignOptions } from 'jsonwebtoken'
 import { AuthPayload } from '../types/index.js'
 
 declare global {
@@ -27,7 +27,8 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
 }
 
 export function generateToken(payload: AuthPayload): string {
-  return jwt.sign(payload, process.env.JWT_SECRET || 'secret', {
+  const signOptions: any = {
     expiresIn: process.env.JWT_EXPIRE || '7d'
-  })
+  }
+  return jwt.sign(payload, process.env.JWT_SECRET || 'secret', signOptions)
 }
